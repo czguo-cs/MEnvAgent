@@ -791,6 +791,10 @@ a {
     background: linear-gradient(135deg, #777bb4, #4f5b93);
 }
 
+.language-icon.c {
+    background: linear-gradient(135deg, #555555, #283593);
+}
+
 .language-icon.csharp {
     background: linear-gradient(135deg, #239120, #68217a);
 }

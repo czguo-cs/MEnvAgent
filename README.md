@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://arxiv.org/abs/XXXX.XXXXX"><img src="https://img.shields.io/badge/arXiv-XXXX.XXXXX-b31b1b.svg"></a>
-  <a href="https://huggingface.co/datasets/TODO/MEnvData-SWE-2K"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-yellow"></a>
+  <a href="https://huggingface.co/datasets/TODO/MEnvData"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-yellow"></a>
   <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache_2.0-green.svg"></a>
 </p>
 
@@ -28,7 +28,7 @@ Official implementation of MEnvAgent, an automated framework for building execut
 ## 📰 News
 
 <!-- * **[Jan. 2026]**: Our paper "MEnvAgent: Scalable Polyglot Environment Construction for Verifiable Software Engineering" has been submitted to ! -->
-* **[Jan. 2026]**: We release MEnvData-SWE-2K, a high-quality polyglot SWE dataset with verified executable environments and agent trajectories.
+* **[Jan. 2026]**: We release MEnvData, a high-quality polyglot SWE dataset with verified executable environments and agent trajectories.
 * **[Jan. 2026]**: MEnvBench is now available - a comprehensive benchmark covering 1,000 tasks across 10 mainstream programming languages.
 
 ## ⭐ Key Features
@@ -155,25 +155,25 @@ Performance comparison with state-of-the-art baselines:
 - **43%** reduction in time costs
 - Consistent performance across all 10 supported languages
 
-## 💾 MEnvData-SWE-2K Dataset
+## 💾 MEnvData Dataset
 
-We release **MEnvData-SWE-2K**, a high-quality dataset for software engineering research:
+We release **MEnvData**, a high-quality polyglot SWE dataset with **2K Docker images** and **3K agent trajectories**:
 
-- **Size**: 2,000+ verified task instances
-- **Languages**: Multi-language coverage (Python, Java, and more)
-- **Quality**: All instances include verified executable environments
-- **Trajectories**: Agent execution trajectories for training and analysis
+- **2K Docker Images**: Pre-built environment images with verified dependencies
+- **3K Agent Trajectories**: Complete execution trajectories for training and analysis
+- **Multi-Language**: Coverage across 10 mainstream programming languages
+- **Verified Quality**: All instances include executable environments with validation
 - **Format**: Compatible with SWE-Bench evaluation framework
 
 ### 🔗 Dataset Access
 
-🤗 **Hugging Face Dataset**: [https://huggingface.co/datasets/TODO/MEnvData-SWE-2K](https://huggingface.co/datasets/TODO/MEnvData-SWE-2K)
+🤗 **Hugging Face Dataset**: [https://huggingface.co/datasets/TODO/MEnvData](https://huggingface.co/datasets/TODO/MEnvData)
 
 ```python
 # Load the dataset using Hugging Face datasets library
 from datasets import load_dataset
 
-dataset = load_dataset("TODO/MEnvData-SWE-2K")
+dataset = load_dataset("TODO/MEnvData")
 ```
 
 ### 📋 Dataset Structure
@@ -314,7 +314,6 @@ If MEnvAgent helps your research or projects, please cite our paper:
 @article{menvagent2026,
   title={MEnvAgent: Scalable Polyglot Environment Construction for Verifiable Software Engineering},
   author={TODO: Add authors from paper},
-  journal={International Conference on Machine Learning (ICML)},
   year={2026}
 }
 ```
