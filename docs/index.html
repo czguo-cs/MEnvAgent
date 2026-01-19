@@ -165,18 +165,11 @@
                 <p>Multi-agent system structured into three iterative stages</p>
             </div>
 
-            <!-- Placeholder for main architecture diagram -->
-                        <div class="architecture-diagram-container" style="margin: 2rem 0;">
-                <object data="assets/images/architecture-main.pdf" type="application/pdf"
-                        style="width: 100%; height: 600px; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);">
-                    <p style="text-align: center; padding: 2rem;">
-                        Your browser doesn't support PDF preview.
-                        <a href="assets/images/architecture-main.pdf" target="_blank"
-                           style="color: #6366f1; text-decoration: underline;">
-                            Click here to view the architecture diagram
-                        </a>
-                    </p>
-                </object>
+            <!-- 📌 图片位置 1: 系统架构图 -->
+            <div class="architecture-diagram-container" style="margin: 2rem 0; text-align: center;">
+                <img src="assets/images/MEnvAgent-main.png"
+                     alt="MEnvAgent Architecture Overview"
+                     style="width: 100%; max-width: 1200px; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);">
                 <p style="text-align: center; color: #6b7280; margin-top: 1rem; font-style: italic;">
                     Overview of MEnvAgent: (Top) Environment Reuse Mechanism retrieves and adapts historical environments.
                     (Bottom) Planning-Execution-Verification loop with autonomous agents.
@@ -262,23 +255,75 @@
                 <h3>Evaluation Results</h3>
                 <p>Performance comparison with state-of-the-art baselines</p>
 
-                <!-- Placeholder for results table -->
-                            <div class="performance-scatter-container" style="margin: 2rem 0;">
-                <object data="assets/images/performance-scatter.pdf" type="application/pdf"
-                        style="width: 100%; max-width: 1000px; height: 500px; margin: 0 auto; display: block; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);">
-                    <p style="text-align: center; padding: 2rem;">
-                        Your browser doesn't support PDF preview.
-                        <a href="assets/images/performance-scatter.pdf" target="_blank"
-                           style="color: #6366f1; text-decoration: underline;">
-                            Click here to view the performance comparison
-                        </a>
+                <!-- 📌 图片位置 2: 性能对比散点图 -->
+                
+                    <!-- 如果只有一张图，使用下面这段： -->
+                    <div class="performance-scatter" style="margin: 2rem 0; text-align: center;">
+                        <img src="assets/images/performance-scatter.png"
+                             alt="Performance Comparison"
+                             style="width: 100%; max-width: 1000px; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);">
+                        <p style="text-align: center; color: #6b7280; margin-top: 1rem; font-style: italic;">
+                            Repository analysis scatter plot showing performance across different repository sizes.
+                        </p>
+                    </div>
+               
+
+                <!-- 如果有两张图，使用下面这段（并排显示）： -->
+                <!-- <div class="performance-scatter-container" style="margin: 2rem 0;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 1400px; margin: 0 auto;">
+
+                        <div style="text-align: center;">
+                            <img src="assets/images/performance-scatter-1.png"
+                                 alt="Model 1 Performance"
+                                 style="width: 100%; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);">
+                            <p style="color: #6b7280; margin-top: 1rem; font-size: 0.9rem; font-style: italic;">
+                                Model A: Performance across repositories
+                            </p>
+                        </div>
+
+                        <div style="text-align: center;">
+                            <img src="assets/images/performance-scatter-2.png"
+                                 alt="Model 2 Performance"
+                                 style="width: 100%; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);">
+                            <p style="color: #6b7280; margin-top: 1rem; font-size: 0.9rem; font-style: italic;">
+                                Model B: Performance across repositories
+                            </p>
+                        </div>
+                    </div>
+                    <p style="text-align: center; color: #6b7280; margin-top: 1.5rem; font-style: italic;">
+                        Side-by-side comparison: Performance analysis across different repository sizes and complexities.
+                        Bubble size indicates the number of tasks.
                     </p>
-                </object>
-                <p style="text-align: center; color: #6b7280; margin-top: 1rem; font-style: italic;">
-                    Repository analysis scatter plot: Performance comparison across different repository sizes and complexities.
-                    Bubble size indicates the number of tasks, showing MEnvAgent's effectiveness across diverse repositories.
-                </p>
-            </div>
+                </div> -->
+
+                <!-- 如果想上下堆叠显示，使用这段：
+                <div class="performance-scatter-container" style="margin: 2rem 0; text-align: center;">
+                    <div style="max-width: 1000px; margin: 0 auto;">
+                        <img src="assets/images/performance-scatter-1.png"
+                             alt="Model 1 Performance"
+                             style="width: 100%; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); margin-bottom: 1rem;">
+                        <p style="color: #6b7280; margin-bottom: 2rem; font-size: 0.9rem; font-style: italic;">
+                            Model A: Performance comparison
+                        </p>
+
+                        <img src="assets/images/performance-scatter-2.png"
+                             alt="Model 2 Performance"
+                             style="width: 100%; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); margin-bottom: 1rem;">
+                        <p style="color: #6b7280; font-size: 0.9rem; font-style: italic;">
+                            Model B: Performance comparison
+                        </p>
+                    </div>
+                </div>
+                -->
+
+                <!-- 移动端自适应：并排变成上下 -->
+                <style>
+                @media (max-width: 768px) {
+                    .performance-scatter-container > div {
+                        grid-template-columns: 1fr !important;
+                    }
+                }
+                </style>
             </div>
 
             <div class="improvements">
@@ -299,18 +344,11 @@
                 </div>
             </div>
 
-            <!-- Placeholder for language distribution chart -->
-                        <div class="language-radar-container" style="margin: 2rem 0;">
-                <object data="assets/images/language-radar.pdf" type="application/pdf"
-                        style="width: 100%; max-width: 800px; height: 600px; margin: 0 auto; display: block; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);">
-                    <p style="text-align: center; padding: 2rem;">
-                        Your browser doesn't support PDF preview.
-                        <a href="assets/images/language-radar.pdf" target="_blank"
-                           style="color: #6366f1; text-decoration: underline;">
-                            Click here to view the language distribution
-                        </a>
-                    </p>
-                </object>
+            <!-- 📌 图片位置 3: 语言性能分布雷达图 -->
+            <div class="language-radar-container" style="margin: 2rem 0; text-align: center;">
+                <img src="assets/images/language-radar.png"
+                     alt="Language Performance Radar Chart"
+                     style="width: 100%; max-width: 800px; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);">
                 <p style="text-align: center; color: #6b7280; margin-top: 1rem; font-style: italic;">
                     Performance radar chart across 10 programming languages: Python, Java, JavaScript, TypeScript,
                     Rust, Go, C++, Ruby, PHP, and C#. MEnvAgent maintains consistent high performance across all languages.
@@ -375,23 +413,16 @@ dataset = load_dataset("TODO/MEnvData-SWE-2K")</code></pre>
                     </div>
                 </div>
 
-                <!-- Placeholder for dataset structure visualization -->
-                            <div class="dataset-structure-container" style="margin: 2rem 0;">
-                <object data="assets/images/dataset-structure.pdf" type="application/pdf"
-                        style="width: 100%; max-width: 800px; height: 600px; margin: 0 auto; display: block; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);">
-                    <p style="text-align: center; padding: 2rem;">
-                        Your browser doesn't support PDF preview.
-                        <a href="assets/images/dataset-structure.pdf" target="_blank"
-                           style="color: #6366f1; text-decoration: underline;">
-                            Click here to view the dataset structure
-                        </a>
+                <!-- 📌 图片位置 4: 数据集结构分布图 -->
+                <div class="dataset-structure-container" style="margin: 2rem 0; text-align: center;">
+                    <img src="assets/images/dataset-structure.png"
+                         alt="MEnvData-SWE-2K Dataset Structure"
+                         style="width: 100%; max-width: 800px; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);">
+                    <p style="text-align: center; color: #6b7280; margin-top: 1rem; font-style: italic;">
+                        MEnvData-SWE-2K dataset structure: Distribution of task categories, domains, and complexity levels.
+                        Shows the diversity and comprehensive coverage of our benchmark dataset.
                     </p>
-                </object>
-                <p style="text-align: center; color: #6b7280; margin-top: 1rem; font-style: italic;">
-                    MEnvData-SWE-2K dataset structure: Distribution of task categories, domains, and complexity levels.
-                    Shows the diversity and comprehensive coverage of our benchmark dataset.
-                </p>
-            </div>
+                </div>
             </div>
         </div>
     </section>
