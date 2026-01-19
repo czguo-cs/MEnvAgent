@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEnvAgent Preview - Quick View</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .preview-notice {
+            background: #3b82f6;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 { color: #1f2937; font-size: 2.5rem; margin-bottom: 10px; }
+        h2 { color: #3b82f6; font-size: 2rem; border-bottom: 3px solid #3b82f6; padding-bottom: 10px; }
+        h3 { color: #4b5563; font-size: 1.5rem; margin-top: 20px; }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .feature-card {
+            border: 2px solid #e5e7eb;
+            padding: 20px;
+            border-radius: 8px;
+            background: #f9fafb;
+        }
+        .feature-card h4 {
+            color: #3b82f6;
+            margin-bottom: 10px;
+        }
+        .placeholder {
+            background: #fef3c7;
+            border: 3px dashed #f59e0b;
+            padding: 40px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .placeholder-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #92400e;
+            margin-bottom: 10px;
+        }
+        .placeholder-note {
+            color: #78350f;
+            font-style: italic;
+        }
+        .links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #3b82f6;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+        .btn:hover {
+            background: #2563eb;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        code {
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        pre {
+            background: #1f2937;
+            color: #e5e7eb;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        .language-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .language-badge {
+            padding: 8px 16px;
+            background: #3b82f6;
+            color: white;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="preview-notice">
+        <h2>📋 这是一个快速预览版本</h2>
+        <p>这个文件可以直接在浏览器中打开（无需服务器），用于查看网站的内容和布局</p>
+        <p>完整版在 <code>docs/index.html</code> 中，包含完整样式和交互功能</p>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="section">
+        <h1>🤖 MEnvAgent</h1>
+        <p style="font-size: 1.3rem; color: #6b7280;">
+            Scalable Polyglot Environment Construction for Verifiable Software Engineering
+        </p>
+        <p style="font-size: 1.1rem; margin: 20px 0;">
+            An automated framework for building executable environments across 10 programming languages
+            to enable scalable generation of verifiable software engineering data.
+        </p>
+        <div class="links">
+            <a href="https://arxiv.org/abs/XXXX.XXXXX" class="btn">📄 Read Paper</a>
+            <a href="https://github.com/your-org/MEnvAgent" class="btn">💻 GitHub</a>
+            <a href="https://huggingface.co/datasets/TODO/MEnvData-SWE-2K" class="btn">📊 Dataset</a>
+        </div>
+    </div>
+
+    <!-- News -->
+    <div class="section">
+        <h2>📰 Latest News</h2>
+        <ul>
+            <li><strong>[Jan 2026]</strong> MEnvData-SWE-2K released - high-quality polyglot SWE dataset</li>
+            <li><strong>[Jan 2026]</strong> MEnvBench available - 1,000 tasks across 10 languages</li>
+        </ul>
+    </div>
+
+    <!-- Key Features -->
+    <div class="section">
+        <h2>⭐ Key Features</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h4>🌍 Multi-Language Support</h4>
+                <p>Automated environment construction for 10 mainstream programming languages</p>
+            </div>
+            <div class="feature-card">
+                <h4>🤖 Multi-Agent Architecture</h4>
+                <p>Planning-Execution-Verification closed-loop system</p>
+            </div>
+            <div class="feature-card">
+                <h4>♻️ Environment Reuse</h4>
+                <p>Reduces overhead by incrementally patching retrieved environments</p>
+            </div>
+            <div class="feature-card">
+                <h4>🐳 Docker/Kubernetes Backend</h4>
+                <p>Flexible container orchestration</p>
+            </div>
+            <div class="feature-card">
+                <h4>✅ Fail2Pass Validation</h4>
+                <p>Rigorous validation ensuring tests fail before and pass after fixes</p>
+            </div>
+            <div class="feature-card">
+                <h4>🚀 High Performance</h4>
+                <p>8.6% improvement in F2P rates, 43% time reduction</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Architecture -->
+    <div class="section">
+        <h2>🏗️ Architecture Overview</h2>
+
+        <div class="placeholder">
+            <div class="placeholder-title">🖼️ Main Architecture Diagram</div>
+            <p class="placeholder-note">位置: Architecture Overview 部分</p>
+            <p class="placeholder-note">需要: MEnvAgent-main.png (1200x600px)</p>
+            <p class="placeholder-note">内容: 规划-执行-验证循环 + 环境复用机制</p>
+        </div>
+
+        <h3>📝 Planning Stage</h3>
+        <ul>
+            <li><strong>Repository Analysis Agent:</strong> Explores repository structure</li>
+            <li><strong>Environment Setup Agent:</strong> Determines base image and installation scripts</li>
+            <li><strong>Test Configuration Agent:</strong> Synthesizes test configuration</li>
+        </ul>
+
+        <h3>⚡ Execution Stage</h3>
+        <ul>
+            <li><strong>Environment Execution Agent:</strong> Instantiates containers with real-time monitoring</li>
+            <li>Dynamic error resolution and automatic retry</li>
+        </ul>
+
+        <h3>✅ Verification Stage</h3>
+        <ul>
+            <li><strong>Verification Agent:</strong> Executes tests and performs error attribution</li>
+            <li>Iterative refinement loop with diagnostic feedback</li>
+        </ul>
+
+        <h3>♻️ Environment Reuse Mechanism</h3>
+        <ol>
+            <li>Retrieves similar historical environments from Environment Pool</li>
+            <li>Uses <strong>EnvPatchAgent</strong> to generate incremental patches</li>
+            <li>Applies patches to adapt environment to target requirements</li>
+            <li>Significantly reduces computational overhead</li>
+        </ol>
+    </div>
+
+    <!-- Benchmark -->
+    <div class="section">
+        <h2>📊 MEnvBench: Evaluation Benchmark</h2>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">1,000</div>
+                <div>Tasks</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">10</div>
+                <div>Languages</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">200</div>
+                <div>Repositories</div>
+            </div>
+        </div>
+
+        <h3>📈 Evaluation Results</h3>
+        <div class="placeholder">
+            <div class="placeholder-title">📊 Results Comparison Table</div>
+            <p class="placeholder-note">位置: Benchmark 部分</p>
+            <p class="placeholder-note">需要: results-comparison.png (1000x400px)</p>
+            <p class="placeholder-note">内容: F2P Rate、Time、Cost 对比表</p>
+        </div>
+
+        <h3>🎯 Key Improvements</h3>
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">+8.6%</div>
+                <div>F2P Rate Improvement</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">-43%</div>
+                <div>Time Cost Reduction</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">10/10</div>
+                <div>Languages Supported</div>
+            </div>
+        </div>
+
+        <div class="placeholder">
+            <div class="placeholder-title">📊 Language Distribution Chart</div>
+            <p class="placeholder-note">位置: Benchmark 部分</p>
+            <p class="placeholder-note">需要: language-distribution.png (800x600px)</p>
+            <p class="placeholder-note">内容: 各语言性能对比（柱状图/雷达图）</p>
+        </div>
+    </div>
+
+    <!-- Dataset -->
+    <div class="section">
+        <h2>💾 MEnvData-SWE-2K Dataset</h2>
+        <ul>
+            <li>📦 <strong>Size:</strong> 2,000+ verified task instances</li>
+            <li>🌍 <strong>Languages:</strong> Multi-language coverage</li>
+            <li>✅ <strong>Quality:</strong> All instances include verified executable environments</li>
+            <li>📈 <strong>Trajectories:</strong> Agent execution trajectories for training</li>
+        </ul>
+
+        <div class="placeholder">
+            <div class="placeholder-title">📋 Dataset Structure Visualization</div>
+            <p class="placeholder-note">位置: Dataset 部分</p>
+            <p class="placeholder-note">需要: dataset-structure.png (800x600px)</p>
+            <p class="placeholder-note">内容: 数据集结构和字段说明</p>
+        </div>
+
+        <h3>Download Dataset</h3>
+        <pre><code>from datasets import load_dataset
+
+dataset = load_dataset("TODO/MEnvData-SWE-2K")</code></pre>
+    </div>
+
+    <!-- Supported Languages -->
+    <div class="section">
+        <h2>💻 Supported Languages</h2>
+        <div class="language-list">
+            <span class="language-badge">🐍 Python (3.6-3.13)</span>
+            <span class="language-badge">☕ Java (8, 11, 17)</span>
+            <span class="language-badge">📜 JavaScript</span>
+            <span class="language-badge">📘 TypeScript</span>
+            <span class="language-badge">🦀 Rust</span>
+            <span class="language-badge">🔷 Go</span>
+            <span class="language-badge">⚙️ C++</span>
+            <span class="language-badge">💎 Ruby</span>
+            <span class="language-badge">🐘 PHP</span>
+            <span class="language-badge">#️⃣ C#</span>
+        </div>
+    </div>
+
+    <!-- Installation -->
+    <div class="section">
+        <h2>🔧 Installation</h2>
+
+        <h3>1. Clone Repository</h3>
+        <pre><code>git clone https://github.com/your-org/MEnvAgent.git
+cd MEnvAgent</code></pre>
+
+        <h3>2. Set Up Environment</h3>
+        <pre><code>conda create --name menvagent python=3.10 -y
+conda activate menvagent
+pip install -r requirements.txt</code></pre>
+
+        <h3>3. Configure</h3>
+        <pre><code>export OPENAI_API_BASE_URL=&lt;your_base_url&gt;
+export OPENAI_KEY=&lt;your_api_key&gt;</code></pre>
+    </div>
+
+    <!-- Citation -->
+    <div class="section">
+        <h2>📖 Citation</h2>
+        <pre><code>@article{menvagent2026,
+  title={MEnvAgent: Scalable Polyglot Environment Construction for Verifiable Software Engineering},
+  author={TODO: Add authors from paper},
+  journal={International Conference on Machine Learning (ICML)},
+  year={2026}
+}</code></pre>
+    </div>
+
+    <!-- Summary -->
+    <div class="section" style="background: #ecfdf5; border: 2px solid #10b981;">
+        <h2>✅ 预览总结</h2>
+        <h3>需要添加的图片（共4张）：</h3>
+        <ol>
+            <li><strong>MEnvAgent-main.png</strong> - 架构主图 (1200x600px)</li>
+            <li><strong>results-comparison.png</strong> - 结果对比表 (1000x400px)</li>
+            <li><strong>language-distribution.png</strong> - 语言分布图 (800x600px)</li>
+            <li><strong>dataset-structure.png</strong> - 数据集结构图 (800x600px)</li>
+        </ol>
+        <p>所有图片放在 <code>docs/assets/images/</code> 目录下</p>
+
+        <h3>下一步：</h3>
+        <ol>
+            <li>推送代码: <code>git push origin main</code></li>
+            <li>在 GitHub 仓库设置中启用 Pages</li>
+            <li>准备并添加图片</li>
+            <li>更新链接（arXiv、HuggingFace、GitHub URLs）</li>
+        </ol>
+    </div>
+</body>
+</html>

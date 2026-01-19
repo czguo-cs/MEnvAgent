@@ -27,7 +27,7 @@ Official implementation of MEnvAgent, an automated framework for building execut
 
 ## 📰 News
 
-<!-- * **[Jan. 2026]**: Our paper "MEnvAgent: Scalable Polyglot Environment Construction for Verifiable Software Engineering" has been submitted to **ICML 2026**! -->
+<!-- * **[Jan. 2026]**: Our paper "MEnvAgent: Scalable Polyglot Environment Construction for Verifiable Software Engineering" has been submitted to ! -->
 * **[Jan. 2026]**: We release MEnvData-SWE-2K, a high-quality polyglot SWE dataset with verified executable environments and agent trajectories.
 * **[Jan. 2026]**: MEnvBench is now available - a comprehensive benchmark covering 1,000 tasks across 10 mainstream programming languages.
 
