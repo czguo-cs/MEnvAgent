@@ -63,7 +63,7 @@ REPLACEMENTS = {
                 </object>
                 <p style="text-align: center; color: #6b7280; margin-top: 1rem; font-style: italic;">
                     Performance radar chart across 10 programming languages: Python, Java, JavaScript, TypeScript,
-                    Rust, Go, C++, Ruby, PHP, and C#. MEnvAgent maintains consistent high performance across all languages.
+                    Rust, Go, C++, Ruby, PHP, and C. MEnvAgent maintains consistent high performance across all languages.
                 </p>
             </div>''',
 

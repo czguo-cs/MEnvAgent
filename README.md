@@ -208,7 +208,7 @@ MEnvAgent supports the following languages with pre-built base images:
 - C++: GCC/Clang compiler suites
 - Ruby: Ruby interpreter with bundler
 - PHP: PHP runtime with composer
-- C#: .NET SDK
+- C: GCC Compiler
 
 ## 📁 Project Structure
 

@@ -61,7 +61,7 @@
 - **源PDF**: `paper/.../pic/menvbench_radar_suc.pdf`
 - **用途**: 展示 10 种编程语言的性能分布
 - **内容要求**:
-  - 雷达图显示 10 种语言：Python, Java, JavaScript, TypeScript, Rust, Go, C++, Ruby, PHP, C#
+  - 雷达图显示 10 种语言：Python, Java, JavaScript, TypeScript, Rust, Go, C++, Ruby, PHP, C
   - 显示成功率或有效性指标
 - **建议尺寸**: 宽度 800-1000px（正方形或接近正方形）
 - **位置**: Benchmark Results 部分

@@ -90,7 +90,7 @@ git push origin main
           /\
    Java /    \ JavaScript
         |    |
-     C# |    | TypeScript
+      C |    | TypeScript
          \  /
          Rust
 ```

@@ -25,7 +25,6 @@
                 <li><a href="#architecture">Architecture</a></li>
                 <li><a href="#benchmark">Benchmark</a></li>
                 <li><a href="#dataset">Dataset</a></li>
-                <li><a href="#installation">Installation</a></li>
                 <li><a href="#citation">Citation</a></li>
                 <li><a href="https://github.com/your-org/MEnvAgent" target="_blank" class="btn-github">
                     <i class="fab fa-github"></i> GitHub
@@ -219,7 +218,7 @@
                     <ol>
                         <li>Retrieves similar historical environments from the Environment Pool</li>
                         <li>Uses <strong>EnvPatchAgent</strong> to generate incremental patches</li>
-                        <li>Applies patches to adapt the retrieved environment to target requirements</li>
+                        <li>Applies patches to adapt the retrieved environment to target repository</li>
                         <li>Significantly reduces computational overhead and improves success rates</li>
                     </ol>
                 </div>
@@ -236,6 +235,18 @@
                 <p>Comprehensive benchmark for evaluating multi-language environment building</p>
             </div>
 
+            <!-- 📌 图片: MEnvBench 数据集分布 -->
+            <div class="dataset-distribution-container" style="margin: 2rem 0; text-align: center;">
+                <img src="assets/images/menvbench_distribution.png"
+                     alt="MEnvBench Dataset Distribution - Domain and Repository Scale"
+                     style="width: 100%; max-width: 1000px; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);">
+                <p style="text-align: center; color: #6b7280; margin-top: 1rem; font-style: italic;">
+                    MEnvBench dataset distribution: Shows <strong>domain distribution</strong> (e.g., web development, data science, system utilities)
+                    and <strong>repository scale distribution</strong> (small, medium, large projects), demonstrating comprehensive coverage
+                    across diverse application domains and project complexities.
+                </p>
+            </div>
+
             <div class="benchmark-stats">
                 <div class="stat-card">
                     <div class="stat-number">1,000</div>
@@ -249,81 +260,6 @@
                     <div class="stat-number">200</div>
                     <div class="stat-label">Repositories</div>
                 </div>
-            </div>
-
-            <div class="results-section">
-                <h3>Evaluation Results</h3>
-                <p>Performance comparison with state-of-the-art baselines</p>
-
-                <!-- 📌 图片位置 2: 性能对比散点图 -->
-                
-                    <!-- 如果只有一张图，使用下面这段： -->
-                    <div class="performance-scatter" style="margin: 2rem 0; text-align: center;">
-                        <img src="assets/images/performance-scatter.png"
-                             alt="Performance Comparison"
-                             style="width: 100%; max-width: 1000px; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);">
-                        <p style="text-align: center; color: #6b7280; margin-top: 1rem; font-style: italic;">
-                            Repository analysis scatter plot showing performance across different repository sizes.
-                        </p>
-                    </div>
-               
-
-                <!-- 如果有两张图，使用下面这段（并排显示）： -->
-                <!-- <div class="performance-scatter-container" style="margin: 2rem 0;">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 1400px; margin: 0 auto;">
-
-                        <div style="text-align: center;">
-                            <img src="assets/images/performance-scatter-1.png"
-                                 alt="Model 1 Performance"
-                                 style="width: 100%; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);">
-                            <p style="color: #6b7280; margin-top: 1rem; font-size: 0.9rem; font-style: italic;">
-                                Model A: Performance across repositories
-                            </p>
-                        </div>
-
-                        <div style="text-align: center;">
-                            <img src="assets/images/performance-scatter-2.png"
-                                 alt="Model 2 Performance"
-                                 style="width: 100%; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);">
-                            <p style="color: #6b7280; margin-top: 1rem; font-size: 0.9rem; font-style: italic;">
-                                Model B: Performance across repositories
-                            </p>
-                        </div>
-                    </div>
-                    <p style="text-align: center; color: #6b7280; margin-top: 1.5rem; font-style: italic;">
-                        Side-by-side comparison: Performance analysis across different repository sizes and complexities.
-                        Bubble size indicates the number of tasks.
-                    </p>
-                </div> -->
-
-                <!-- 如果想上下堆叠显示，使用这段：
-                <div class="performance-scatter-container" style="margin: 2rem 0; text-align: center;">
-                    <div style="max-width: 1000px; margin: 0 auto;">
-                        <img src="assets/images/performance-scatter-1.png"
-                             alt="Model 1 Performance"
-                             style="width: 100%; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); margin-bottom: 1rem;">
-                        <p style="color: #6b7280; margin-bottom: 2rem; font-size: 0.9rem; font-style: italic;">
-                            Model A: Performance comparison
-                        </p>
-
-                        <img src="assets/images/performance-scatter-2.png"
-                             alt="Model 2 Performance"
-                             style="width: 100%; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); margin-bottom: 1rem;">
-                        <p style="color: #6b7280; font-size: 0.9rem; font-style: italic;">
-                            Model B: Performance comparison
-                        </p>
-                    </div>
-                </div>
-                -->
-
-                <!-- 移动端自适应：并排变成上下 -->
-                <style>
-                @media (max-width: 768px) {
-                    .performance-scatter-container > div {
-                        grid-template-columns: 1fr !important;
-                    }
-                }
-                </style>
             </div>
 
             <div class="improvements">
@@ -344,15 +280,20 @@
                 </div>
             </div>
 
-            <!-- 📌 图片位置 3: 语言性能分布雷达图 -->
-            <div class="language-radar-container" style="margin: 2rem 0; text-align: center;">
-                <img src="assets/images/language-radar.png"
-                     alt="Language Performance Radar Chart"
-                     style="width: 100%; max-width: 800px; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);">
-                <p style="text-align: center; color: #6b7280; margin-top: 1rem; font-style: italic;">
-                    Performance radar chart across 10 programming languages: Python, Java, JavaScript, TypeScript,
-                    Rust, Go, C++, Ruby, PHP, and C#. MEnvAgent maintains consistent high performance across all languages.
-                </p>
+            <!-- 📌 图片: 性能对比散点图 -->
+            <div class="performance-scatter-container" style="margin: 3rem 0;">
+                <h3 style="text-align: center; margin-bottom: 1.5rem;">Performance Comparison</h3>
+                <div style="text-align: center;">
+                    <img src="assets/images/performance-scatter.png"
+                         alt="Performance Scatter Plot - Success Rate vs Time Cost"
+                         style="width: 100%; max-width: 1000px; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);">
+                    <p style="text-align: center; color: #6b7280; margin-top: 1rem; font-style: italic;">
+                        <strong>Performance scatter plot:</strong> Y-axis shows success rate, X-axis shows time cost.
+                        <span style="color: #10b981; font-weight: 600;">MEnvAgent results cluster in the top-left corner</span>
+                        - achieving both high success rates and low time costs, demonstrating superior performance
+                        compared to baseline approaches.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -413,14 +354,84 @@ dataset = load_dataset("TODO/MEnvData-SWE-2K")</code></pre>
                     </div>
                 </div>
 
-                <!-- 📌 图片位置 4: 数据集结构分布图 -->
-                <div class="dataset-structure-container" style="margin: 2rem 0; text-align: center;">
-                    <img src="assets/images/dataset-structure.png"
-                         alt="MEnvData-SWE-2K Dataset Structure"
-                         style="width: 100%; max-width: 800px; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);">
-                    <p style="text-align: center; color: #6b7280; margin-top: 1rem; font-style: italic;">
-                        MEnvData-SWE-2K dataset structure: Distribution of task categories, domains, and complexity levels.
-                        Shows the diversity and comprehensive coverage of our benchmark dataset.
+                <!-- 📋 训练验证结果表格 -->
+                <div class="results-table-container" style="margin: 3rem 0;">
+                    <h3 style="text-align: center; margin-bottom: 1.5rem;">Training Results on SWE Benchmarks</h3>
+                    <p style="text-align: center; color: #6b7280; margin-bottom: 2rem;">
+                        Performance measured by Resolved Rate (%). <strong>V</strong> and <strong>M</strong> denote the Verified and Multilingual versions, respectively.
+                    </p>
+
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; max-width: 1000px; margin: 0 auto; border-collapse: collapse; background: white; border-radius: 0.5rem; box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1);">
+                            <thead>
+                                <tr style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                                    <th rowspan="2" style="padding: 1rem; text-align: left; border-bottom: 2px solid #e5e7eb; font-weight: 600;">Model</th>
+                                    <th colspan="2" style="padding: 1rem; text-align: center; border-bottom: 2px solid #e5e7eb; border-left: 1px solid rgba(255,255,255,0.2); font-weight: 600;">Params (B)</th>
+                                    <th colspan="2" style="padding: 1rem; text-align: center; border-bottom: 2px solid #e5e7eb; border-left: 1px solid rgba(255,255,255,0.2); font-weight: 600;">SWE-Bench (V)</th>
+                                    <th colspan="2" style="padding: 1rem; text-align: center; border-bottom: 2px solid #e5e7eb; border-left: 1px solid rgba(255,255,255,0.2); font-weight: 600;">SWE-Bench (M)</th>
+                                </tr>
+                                <tr style="background: #f3f4f6;">
+                                    <th style="padding: 0.75rem 1rem; text-align: center; border-bottom: 2px solid #e5e7eb; font-weight: 500; color: #374151;">Total</th>
+                                    <th style="padding: 0.75rem 1rem; text-align: center; border-bottom: 2px solid #e5e7eb; font-weight: 500; color: #374151;">Active</th>
+                                    <th style="padding: 0.75rem 1rem; text-align: center; border-bottom: 2px solid #e5e7eb; border-left: 1px solid #e5e7eb; font-weight: 500; color: #374151;">Base</th>
+                                    <th style="padding: 0.75rem 1rem; text-align: center; border-bottom: 2px solid #e5e7eb; font-weight: 500; color: #374151;">SFT</th>
+                                    <th style="padding: 0.75rem 1rem; text-align: center; border-bottom: 2px solid #e5e7eb; border-left: 1px solid #e5e7eb; font-weight: 500; color: #374151;">Base</th>
+                                    <th style="padding: 0.75rem 1rem; text-align: center; border-bottom: 2px solid #e5e7eb; font-weight: 500; color: #374151;">SFT</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid #e5e7eb;">
+                                    <td style="padding: 1rem; color: #374151;">Qwen2.5-Coder-7B-Instruct</td>
+                                    <td style="padding: 1rem; text-align: center; color: #6b7280;">7</td>
+                                    <td style="padding: 1rem; text-align: center; color: #6b7280;">7</td>
+                                    <td style="padding: 1rem; text-align: center; border-left: 1px solid #e5e7eb; color: #6b7280;">0.0</td>
+                                    <td style="padding: 1rem; text-align: center; font-weight: 600; color: #10b981;">21.8</td>
+                                    <td style="padding: 1rem; text-align: center; border-left: 1px solid #e5e7eb; color: #6b7280;">0.0</td>
+                                    <td style="padding: 1rem; text-align: center; font-weight: 600; color: #10b981;">12.3</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e5e7eb; background: #fafafa;">
+                                    <td style="padding: 1rem; color: #374151;">Qwen2.5-Coder-14B-Instruct</td>
+                                    <td style="padding: 1rem; text-align: center; color: #6b7280;">14</td>
+                                    <td style="padding: 1rem; text-align: center; color: #6b7280;">14</td>
+                                    <td style="padding: 1rem; text-align: center; border-left: 1px solid #e5e7eb; color: #6b7280;">5.8</td>
+                                    <td style="padding: 1rem; text-align: center; font-weight: 600; color: #10b981;">39.8</td>
+                                    <td style="padding: 1rem; text-align: center; border-left: 1px solid #e5e7eb; color: #6b7280;">0.0</td>
+                                    <td style="padding: 1rem; text-align: center; font-weight: 600; color: #10b981;">31.2</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e5e7eb;">
+                                    <td style="padding: 1rem; color: #374151;">Qwen2.5-Coder-32B-Instruct</td>
+                                    <td style="padding: 1rem; text-align: center; color: #6b7280;">32</td>
+                                    <td style="padding: 1rem; text-align: center; color: #6b7280;">32</td>
+                                    <td style="padding: 1rem; text-align: center; border-left: 1px solid #e5e7eb; color: #6b7280;">7.5</td>
+                                    <td style="padding: 1rem; text-align: center; font-weight: 600; color: #10b981;">54.6</td>
+                                    <td style="padding: 1rem; text-align: center; border-left: 1px solid #e5e7eb; color: #6b7280;">0.0</td>
+                                    <td style="padding: 1rem; text-align: center; font-weight: 600; color: #10b981;">38.3</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e5e7eb; background: #fafafa;">
+                                    <td style="padding: 1rem; color: #374151;">Qwen3-Coder-30B-A3B-Instruct</td>
+                                    <td style="padding: 1rem; text-align: center; color: #6b7280;">30</td>
+                                    <td style="padding: 1rem; text-align: center; color: #6b7280;">3</td>
+                                    <td style="padding: 1rem; text-align: center; border-left: 1px solid #e5e7eb; color: #6b7280;">45.2</td>
+                                    <td style="padding: 1rem; text-align: center; font-weight: 600; color: #10b981;">53.4</td>
+                                    <td style="padding: 1rem; text-align: center; border-left: 1px solid #e5e7eb; color: #6b7280;">34.7</td>
+                                    <td style="padding: 1rem; text-align: center; font-weight: 600; color: #10b981;">38.0</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 1rem; color: #374151;">GLM-4.5-Air</td>
+                                    <td style="padding: 1rem; text-align: center; color: #6b7280;">106</td>
+                                    <td style="padding: 1rem; text-align: center; color: #6b7280;">12</td>
+                                    <td style="padding: 1rem; text-align: center; border-left: 1px solid #e5e7eb; color: #6b7280;">58.0</td>
+                                    <td style="padding: 1rem; text-align: center; font-weight: 600; color: #10b981;">62.8</td>
+                                    <td style="padding: 1rem; text-align: center; border-left: 1px solid #e5e7eb; color: #6b7280;">42.3</td>
+                                    <td style="padding: 1rem; text-align: center; font-weight: 600; color: #10b981;">47.7</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p style="text-align: center; color: #6b7280; margin-top: 1.5rem; font-size: 0.9rem; font-style: italic;">
+                        <strong>Note:</strong> Best results (after supervised fine-tuning) are shown in <span style="color: #10b981; font-weight: 600;">bold green</span>.
+                        All models demonstrate significant improvement after fine-tuning on MEnvData-SWE-2K dataset.
                     </p>
                 </div>
             </div>
@@ -501,82 +512,16 @@ dataset = load_dataset("TODO/MEnvData-SWE-2K")</code></pre>
                     <p>PHP with Composer</p>
                 </div>
                 <div class="language-card">
-                    <div class="language-icon csharp">
-                        <i class="fas fa-hashtag"></i>
+                    <div class="language-icon c">
+                        <i class="fas fa-copyright"></i>
                     </div>
-                    <h4>C#</h4>
-                    <p>.NET SDK</p>
+                    <h4>C</h4>
+                    <p>GCC Compiler</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Installation Section -->
-    <section id="installation" class="installation-section">
-        <div class="container">
-            <div class="section-header">
-                <i class="fas fa-download"></i>
-                <h2>Installation & Quick Start</h2>
-                <p>Get started with MEnvAgent in minutes</p>
-            </div>
-
-            <div class="installation-steps">
-                <div class="install-step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Prerequisites</h3>
-                        <ul>
-                            <li>Python 3.10+</li>
-                            <li>Docker (version 27.0.3+ recommended)</li>
-                            <li>Kubernetes (optional, for K8s backend)</li>
-                            <li>Git</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="install-step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Clone Repository</h3>
-                        <div class="code-snippet">
-                            <pre><code>git clone https://github.com/your-org/MEnvAgent.git
-cd MEnvAgent</code></pre>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="install-step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Set Up Environment</h3>
-                        <div class="code-snippet">
-                            <pre><code>conda create --name menvagent python=3.10 -y
-conda activate menvagent
-pip install -r requirements.txt</code></pre>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="install-step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h3>Configure</h3>
-                        <div class="code-snippet">
-                            <pre><code>export OPENAI_API_BASE_URL=&lt;your_base_url&gt;
-export OPENAI_KEY=&lt;your_api_key&gt;</code></pre>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cta-section">
-                <h3>Ready to get started?</h3>
-                <a href="https://github.com/your-org/MEnvAgent" class="btn btn-primary" target="_blank">
-                    <i class="fab fa-github"></i> View Full Documentation
-                </a>
-            </div>
-        </div>
-    </section>
 
     <!-- Citation Section -->
     <section id="citation" class="citation-section">
