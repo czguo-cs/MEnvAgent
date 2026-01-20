@@ -36,37 +36,36 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="gradient-text">MEnvAgent</span>
-                </h1>
-                <p class="hero-subtitle">Scalable Polyglot Environment Construction for Verifiable Software Engineering</p>
-                <p class="hero-description">
-                    An automated framework for building executable environments across 10 programming languages
-                    to enable scalable generation of verifiable software engineering data.
-                </p>
-                <div class="hero-buttons">
-                    <a href="https://arxiv.org/abs/XXXX.XXXXX" class="btn btn-primary" target="_blank">
-                        <i class="fas fa-file-pdf"></i> Read Paper
-                    </a>
-                    <a href="https://github.com/your-org/MEnvAgent" class="btn btn-secondary" target="_blank">
-                        <i class="fab fa-github"></i> View on GitHub
-                    </a>
-                    <a href="https://huggingface.co/datasets/TODO/MEnvData" class="btn btn-secondary" target="_blank">
-                        <i class="fas fa-database"></i> Dataset
-                    </a>
-                </div>
-                <div class="hero-badges">
-                    <a href="https://arxiv.org/abs/XXXX.XXXXX" target="_blank">
-                        <img src="https://img.shields.io/badge/arXiv-XXXX.XXXXX-b31b1b.svg" alt="arXiv">
-                    </a>
-                    <a href="https://huggingface.co/datasets/TODO/MEnvData" target="_blank">
-                        <img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-yellow" alt="Hugging Face">
-                    </a>
-                    <a href="https://opensource.org/licenses/Apache-2.0" target="_blank">
-                        <img src="https://img.shields.io/badge/License-Apache_2.0-green.svg" alt="License">
-                    </a>
-                </div>
+            <h1>MEnvAgent</h1>
+            <p class="hero-subtitle">Scalable Polyglot Environment Construction for Verifiable Software Engineering</p>
+            <p class="hero-description">
+                Automatically building executable environments is a critical challenge in software engineering research.
+                Manual environment setup is time-consuming, error-prone, and often blocks the scalable generation of
+                high-quality training data for software engineering tasks. MEnvAgent addresses this challenge by
+                providing an automated multi-agent framework that constructs executable environments across 10 programming
+                languages, enabling verifiable software engineering at scale.
+            </p>
+            <div class="hero-buttons">
+                <a href="https://arxiv.org/abs/XXXX.XXXXX" class="btn btn-primary" target="_blank">
+                    Read Paper
+                </a>
+                <a href="https://github.com/your-org/MEnvAgent" class="btn btn-secondary" target="_blank">
+                    GitHub
+                </a>
+                <a href="https://huggingface.co/datasets/TODO/MEnvData" class="btn btn-secondary" target="_blank">
+                    Dataset
+                </a>
+            </div>
+            <div class="hero-badges">
+                <a href="https://arxiv.org/abs/XXXX.XXXXX" target="_blank">
+                    <img src="https://img.shields.io/badge/arXiv-XXXX.XXXXX-b31b1b.svg" alt="arXiv">
+                </a>
+                <a href="https://huggingface.co/datasets/TODO/MEnvData" target="_blank">
+                    <img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-yellow" alt="Hugging Face">
+                </a>
+                <a href="https://opensource.org/licenses/Apache-2.0" target="_blank">
+                    <img src="https://img.shields.io/badge/License-Apache_2.0-green.svg" alt="License">
+                </a>
             </div>
         </div>
     </section>
@@ -74,79 +73,71 @@
     <!-- News Section -->
     <section id="news" class="news-section">
         <div class="container">
-            <div class="section-header">
-                <i class="fas fa-newspaper"></i>
-                <h2>Latest News</h2>
-            </div>
+            <h2>Latest News</h2>
             <div class="news-grid">
                 <div class="news-item">
-                    <div class="news-date">Jan 2026</div>
-                    <div class="news-content">
-                        <h4>MEnvData Released</h4>
-                        <p>We release MEnvData, a high-quality polyglot SWE dataset with verified executable environments and agent trajectories.</p>
-                    </div>
+                    <span class="news-date">Jan 2026</span>
+                    <h4>MEnvData Released</h4>
+                    <p>We release MEnvData, a high-quality polyglot software engineering dataset containing 2,000 Docker images and 3,000 agent interaction trajectories with verified executable environments across 10 programming languages.</p>
                 </div>
                 <div class="news-item">
-                    <div class="news-date">Jan 2026</div>
-                    <div class="news-content">
-                        <h4>MEnvBench Available</h4>
-                        <p>MEnvBench is now available - a comprehensive benchmark covering 1,000 tasks across 10 mainstream programming languages.</p>
-                    </div>
+                    <span class="news-date">Jan 2026</span>
+                    <h4>MEnvBench Available</h4>
+                    <p>MEnvBench is now available - a comprehensive benchmark covering 1,000 software engineering tasks sampled from 200 diverse open-source repositories across 10 mainstream programming languages for rigorous evaluation.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Key Features Section -->
-    <section id="features" class="features-section">
+    <section id="features">
         <div class="container">
-            <div class="section-header">
-                <i class="fas fa-star"></i>
-                <h2>Key Features</h2>
-                <p>Powerful capabilities for automated environment construction</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
+            <h2>Overview</h2>
+            <p class="section-intro">
+                MEnvAgent is designed to automate the challenging task of constructing executable environments for software
+                repositories. Building on recent advances in large language models, our framework employs a multi-agent architecture
+                where specialized agents collaborate to analyze repositories, select appropriate base images, install dependencies,
+                configure tests, and verify environment correctness. This automation is critical for scaling up the generation of
+                high-quality training data for software engineering tasks.
+            </p>
+
+            <h3>Key Capabilities</h3>
+            <div class="features-list">
+                <div class="feature-item">
                     <h3>Multi-Language Support</h3>
-                    <p>Automated environment construction for 10 mainstream programming languages including Python, Java, TypeScript, JavaScript, Rust, Go, C++, Ruby, PHP, and C.</p>
+                    <p>Automated environment construction for 10 mainstream programming languages including Python (3.6-3.13),
+                    Java (8, 11, 17), TypeScript, JavaScript, Rust, Go, C++, Ruby, PHP, and C. Each language includes
+                    pre-built base images with common dependencies and build tools.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
+                <div class="feature-item">
                     <h3>Multi-Agent Architecture</h3>
-                    <p>Planning-Execution-Verification closed-loop system with specialized agents for different tasks.</p>
+                    <p>A Planning-Execution-Verification closed-loop system where specialized agents handle repository analysis,
+                    environment setup, test configuration, execution monitoring, and verification. Agents communicate through
+                    structured interfaces and can iterate until environment correctness is achieved.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-recycle"></i>
-                    </div>
-                    <h3>Environment Reuse</h3>
-                    <p>Novel approach that reduces overhead by incrementally patching retrieved environments instead of building from scratch.</p>
+                <div class="feature-item">
+                    <h3>Environment Reuse Mechanism</h3>
+                    <p>Instead of building environments from scratch for each repository, MEnvAgent retrieves similar historical
+                    environments from an environment pool and applies incremental patches. This approach reduces computational
+                    overhead by up to 43% while improving success rates.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fab fa-docker"></i>
-                    </div>
+                <div class="feature-item">
                     <h3>Docker/Kubernetes Backend</h3>
-                    <p>Flexible container orchestration supporting both Docker and Kubernetes backends.</p>
+                    <p>Flexible container orchestration supporting both Docker for local development and Kubernetes for
+                    large-scale distributed execution. The abstraction layer allows seamless switching between backends
+                    based on workload requirements.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-check-double"></i>
-                    </div>
-                    <h3>Fail2Pass Validation</h3>
-                    <p>Rigorous validation ensuring tests fail before fix and pass after applying patches.</p>
+                <div class="feature-item">
+                    <h3>Fail-to-Pass Validation</h3>
+                    <p>Rigorous validation protocol ensuring that test cases fail on the buggy version of code and pass
+                    after applying the fix patch. This validates that environments correctly reproduce the original issues
+                    and fixes, essential for training verifiable software engineering agents.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
+                <div class="feature-item">
                     <h3>High Performance</h3>
-                    <p>Achieves 8.6% improvement in F2P rates while reducing time costs by 43% compared to baselines.</p>
+                    <p>Achieves 8.6% improvement in Fail-to-Pass rates compared to baseline approaches while reducing time
+                    costs by 43%. The performance gains come from environment reuse, parallel execution, and intelligent
+                    error recovery mechanisms.</p>
                 </div>
             </div>
         </div>
