@@ -8,13 +8,14 @@
 
 <p align="center">
   <a href="https://arxiv.org/abs/XXXX.XXXXX"><img src="https://img.shields.io/badge/arXiv-XXXX.XXXXX-b31b1b.svg"></a>
-  <a href="https://huggingface.co/datasets/TODO/MEnvData"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-yellow"></a>
+  <a href="https://huggingface.co/datasets/ernie-research/MEnvBench"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20HF-MEnvBench-yellow"></a>
+  <a href="https://huggingface.co/datasets/ernie-research/MEnvData-SWE"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20HF-MEnvData--SWE-orange"></a>
   <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache_2.0-green.svg"></a>
 </p>
 
 **MEnvAgent: Scalable Polyglot Environment Construction for Verifiable Software Engineering**
 
-Official implementation of MEnvAgent, an automated framework for building executable environments across 10 programming languages to enable scalable generation of verifiable software engineering data.
+Official implementation of MEnvAgent, an automated framework for constructing executable environments across 10 programming languages to enable scalable generation of verifiable software engineering data.
 
 <!-- TODO: Convert PDF to SVG before release (recommended) or PNG
 <p align="center">
@@ -28,8 +29,8 @@ Official implementation of MEnvAgent, an automated framework for building execut
 ## 📰 News
 
 <!-- * **[Jan. 2026]**: Our paper "MEnvAgent: Scalable Polyglot Environment Construction for Verifiable Software Engineering" has been submitted to ! -->
-* **[Jan. 2026]**: We release MEnvData, a high-quality polyglot SWE dataset with verified executable environments and agent trajectories.
-* **[Jan. 2026]**: MEnvBench is now available - a comprehensive benchmark covering 1,000 tasks across 10 mainstream programming languages.
+* **[Jan. 2026]**: We release MEnvData-SWE, the largest open-source polyglot dataset of realistic verifiable Docker environments to date, comprising **3,005 task instances** from **942 repositories** across **10 programming languages**.
+* **[Jan. 2026]**: MEnvBench is now available - an execution-based environment construction benchmark with rigorous quality assurance, covering **1,000 tasks** across **10 programming languages** from diverse domains.
 
 ## ⭐ Key Features
 
@@ -108,28 +109,6 @@ export https_proxy="http://your-proxy:port"
 export no_proxy="localhost,127.0.0.1"
 ```
 
-## 🚀 Quick Start
-
-*[Coming soon - code startup instructions will be provided after code organization]*
-
-### Basic Usage
-
-```bash
-# TODO: Add basic usage examples once code is organized
-```
-
-### Running on SWE-Bench Tasks
-
-```bash
-# TODO: Add SWE-Bench execution examples
-```
-
-### Building Environments from GitHub Issues
-
-```bash
-# TODO: Add GitHub issue processing examples
-```
-
 ## 📊 MEnvBench: Evaluation Benchmark
 
 MEnvBench is a comprehensive benchmark for evaluating multi-language environment building and test execution:
@@ -187,69 +166,6 @@ Each instance contains:
 
 *Note: Dataset will be publicly released upon paper publication*
 
-## 💻 Supported Languages and Base Images
-
-MEnvAgent supports the following languages with pre-built base images:
-
-### 🐍 Python
-- Versions: 3.6, 3.7, 3.8, 3.9, 3.10, 3.11, 3.12, 3.13
-- Standard images: `swe-images-base:agentic-py<version>`
-- Claude Code enabled: `swe-images-base:agentic-cc-py<version>` (3.10-3.13)
-
-### ☕ Java
-- Versions: 8, 11, 17
-- Images: `swe-images-base:agentic-java<version>`
-- Includes: Maven 3.9.6 and Gradle 8.5
-
-### 🌍 Other Languages
-- TypeScript/JavaScript: Node.js environments
-- Rust: Rust toolchain with cargo
-- Go: Go compiler and tools
-- C++: GCC/Clang compiler suites
-- Ruby: Ruby interpreter with bundler
-- PHP: PHP runtime with composer
-- C: GCC Compiler
-
-## 📁 Project Structure
-
-```
-MEnvAgent/
-├── app/                          # Main application code
-│   ├── main.py                   # Main entry point
-│   ├── runtime_async.py          # Async runtime manager (Docker/K8s)
-│   ├── agents/                   # Specialized agent implementations
-│   │   ├── baseimage_select_agent/    # Base image selection
-│   │   ├── env_patch_agent/           # Environment patching
-│   │   ├── test_analysis_agent/       # Test analysis
-│   │   ├── write_eval_script_agent/   # Evaluation script generation
-│   │   └── train_env_gen_agent/       # Training environment generation
-│   └── ...
-├── build_repo.py                 # Repository builder orchestration
-├── cc.py                         # Claude Code SDK integration
-├── evaluation/                   # Evaluation framework
-│   ├── run_evaluation.py         # Main evaluation script
-│   └── ...
-├── data_collection/              # Data collection tools
-│   └── collect/                  # GitHub data collection
-├── dockerfile/                   # Docker image definitions
-├── data/                         # Input datasets and tasks
-└── playground/                   # Working directory for outputs
-
-```
-
-## 🔬 Advanced Usage
-
-### Building Custom Base Images
-
-```bash
-# Build Python images
-make build_py313
-make build_py312
-
-# Build Java images
-make build_java17
-make build_java11
-```
 
 ### Running Fail2Pass Validation
 
@@ -283,29 +199,6 @@ runtime = await Runtime.create(backend="docker", docker_image="ubuntu:latest")
 runtime = await Runtime.create(backend="kubernetes", docker_image="image:tag")
 ```
 
-### LLM Configuration
-
-Configure your preferred LLM model:
-- Default model: `claude-sonnet-4-5-20250929`
-- Supported: GPT-4, Claude, Gemini, Kimi-k2, and more
-- Configure via environment variables or config files
-
-## 🤝 Contributing
-
-We welcome contributions to improve MEnvAgent! Areas for potential improvements:
-
-1. **Additional Language Support**: Extend to more programming languages
-2. **Agent Optimization**: Improve agent reasoning and error handling
-3. **Environment Reuse**: Enhance similarity matching algorithms
-4. **Evaluation Metrics**: Add new metrics for environment quality assessment
-
-To contribute:
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
 ## 📖 Citation
 
 If MEnvAgent helps your research or projects, please cite our paper:
@@ -321,12 +214,8 @@ If MEnvAgent helps your research or projects, please cite our paper:
 ## 🙏 Acknowledgements
 
 MEnvAgent builds upon foundational work in software engineering and LLM agents:
-
-- **[SWE-bench](https://arxiv.org/abs/2310.06770)**: Pioneering benchmark for evaluating language models on real-world software tasks
-- **[Repo2Run](https://arxiv.org/abs/2502.13681)**: Automated building of executable environments at scale
-- **[SWE-Factory](https://arxiv.org/abs/2506.10954)**: Automated factory for issue resolution training data
-
-We are grateful to the open-source community for their invaluable contributions to software engineering research.
+- **[SWE-Bench-Live](https://github.com/microsoft/SWE-bench-Live)**: A dynamic, continuously-updated benchmark for evaluating language models on real-world software tasks with fresh, uncontaminated GitHub issues
+- **[SWE-Factory](https://arxiv.org/abs/2506.10954)**: Automated factory for GitHub Issue Resolution Training Data and Evaluation Benchmarks.
 
 ## 📜 License
 
@@ -336,8 +225,6 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 
 For questions, issues, or collaborations, please:
 - Open an issue on GitHub
-- Contact: [TODO: Add contact email]
+- Contact: czguo@ir.hit.edu.cn
 
 ---
-
-**Note**: This is an official research project. The codebase is currently being organized for public release. Full documentation and examples will be provided soon.
