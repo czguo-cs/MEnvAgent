@@ -45,9 +45,6 @@ def request_g4(context, model_id, system_message=""):
         'Content-Type': 'application/json'
     }
 
-    # print("payload: -->", json.dumps(payload, indent=2, ensure_ascii=False))
-    # print("--" * 20)
-
     try_num = 3
     res = {"choices": None}
     while try_num > 0 and res["choices"] == None:
@@ -76,7 +73,3 @@ def parse_g4_result(result):
     completion_token = result["usage"]["completion_tokens"]
     return response, reasoning, prompt_token, completion_token
 
-
-# context = ["你是谁？", "你好，我没有具体的身份和名字。", "你是文心一言吗？"]
-# res = request_g4(context, model_id="gemini-2.5-pro-preview-06-05")
-# print(res)

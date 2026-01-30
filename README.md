@@ -1,10 +1,5 @@
 # MEnvAgent
 
-<!-- <p align="center">
-  <a href="#"><img src="https://img.shields.io/badge/Conference-ICML%202026-blue"></a>
-  <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache_2.0-green.svg"></a>
-  <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.10+-orange.svg"></a>
-</p> -->
 
 <p align="center">
   <a href="https://arxiv.org/abs/XXXX.XXXXX"><img src="https://img.shields.io/badge/arXiv-XXXX.XXXXX-b31b1b.svg"></a>
@@ -29,7 +24,7 @@ Official implementation of MEnvAgent, an automated framework for constructing ex
 - **Multi-Language Support**: Automated environment construction for 10 mainstream programming languages (Python, Java, TypeScript, JavaScript, Rust, Go, C++, Ruby, PHP, C)
 - **Multi-Agent Architecture**: Planning-Execution-Verification closed-loop system with specialized agents for different tasks
 - **Environment Reuse Mechanism**: Novel approach that reduces overhead by incrementally patching retrieved environments instead of building from scratch
-- **Docker/Kubernetes Backend**: Flexible container orchestration supporting both Docker and Kubernetes
+- **Docker/Kubernetes Backend**: Flexible container orchestration supporting both Docker and Kubernetes (K8s backend enables thousand-scale concurrent environment construction)
 - **Fail2Pass Validation**: Rigorous validation ensuring tests fail before fix and pass after applying patches
 - **High Performance**: Achieves 8.6% improvement in F2P rates while reducing time costs by 43% compared to baselines
 
@@ -75,9 +70,8 @@ Instead of building environments from scratch, MEnvAgent:
 
 MEnvBench is a comprehensive benchmark for evaluating multi-language environment building and test execution, comprising **1,000 tasks** (10 languages × 20 repositories × 5 instances) selected from 200 high-quality open-source repositories.
 
-* **Quality Assurance**: Multi-stage filtering pipeline starting from 8,000 candidate repositories (>1,000 stars, >200 forks/issues/PRs) and 213,766 Issue-PR pairs, applying strict criteria including closed issues with test patches and LLM-based quality assessment.
-* **Domain Diversity**: Repositories are systematically classified into specific domains (e.g., AI, System, Web) using LLM categorization to ensure broad coverage across diverse software ecosystems.
-* **Difficulty Stratification**: Strategic sampling across five project scale bands (<10MB to >500MB), as repository size correlates with build complexity, ensuring representation across difficulty levels.
+* **Quality Assurance**: Multi-stage filtering pipeline yielding 8,000 high-quality candidate repositories (>1,000 stars, >200 forks/issues/PRs) and 213,766 Issue-PR pairs after initial quality screening, followed by strict criteria including closed issues with test patches and LLM-based quality assessment.
+* **Repository Selection**: Strategic sampling considering domain diversity (AI, System, Web, etc.) and difficulty levels (five project scale bands from <10MB to >500MB) to ensure broad coverage across diverse software ecosystems.
 
 ### 📈 Evaluation Results
 

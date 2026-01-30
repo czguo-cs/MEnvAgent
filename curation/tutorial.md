@@ -1,177 +1,127 @@
-# Data Curation of SWE-bench-Live
+# MEnvData Curation Tutorial
 
-This tutorial walks you through how to automatically curate new issue-resolving tasks from real GitHub issues.
+This guide walks you through the data curation pipeline for collecting and filtering high-quality GitHub repositories and Issue-PR pairs.
 
-## Setup
+## Step 1: Preparation
 
-Dependencies: python, git, docker
+### 1.1 GitHub Tokens
 
-```shell
-pip install -e .
-pip install -e launch/.
+Create a `tokens.txt` file in the `curation/` directory with your GitHub Personal Access Tokens (one per line):
+
+```
+ghp_your_token_1
+ghp_your_token_2
+ghp_your_token_3
 ```
 
-## Repositories Crawling
+Multiple tokens help avoid GitHub API rate limits.
 
-This step crawls the initial source repo list, from which we find issues. You should prepare GitHub tokens in advance to unlock the API rate limit.
+### 1.2 Environment Variables
 
-1. Crawl raw repositories within a given star range, supporting multiple tokens for higher rate limits
+Set up your LLM API credentials:
 
-```shell
+```bash
+export OPENAI_API_BASE_URL="https://your-api-endpoint.com/v1"
+export OPENAI_KEY="your-api-key"
+```
+
+## Step 2: Data Collection and Filtering
+
+Run the main curation script:
+
+```bash
 cd curation
-mkdir -p output
-
-# max_stars is optional
-python crawl_repo.py \
-    --language Python \
-    --min_stars 10000 \
-    --max_stars 100000 \
-    --tokens_file tokens.txt \
-    --output_file output/raw_repos.jsonl
+bash curation.sh
 ```
 
-2. Filter the crawled raw repositories based on some predefined quality control-related criteria.
+This script performs the following steps:
+1. **Crawl repositories** from GitHub based on language and star criteria
+2. **Filter repositories** by quality thresholds (PRs, issues, forks, language ratio)
+3. **Extract Issue-PR pairs** from filtered repositories
+4. **Merge task files** into a single dataset
 
-```shell
-# More than 200 pulls and issues
-# More than 200 forks
-# The percentage of main language code should be more than 60%
-python filter_repo.py \
-    --input_file output/raw_repos.jsonl \
-    --output_file output/filtered_repos.jsonl \
-    --tokens_file tokens.txt \
-    --language Python \
-     --max_workers 20
+### Configuration
+
+Edit `curation.sh` to customize:
+
+```bash
+# Target language: Python Java JavaScript TypeScript Rust C C++ Go PHP Ruby
+language=Python
+
+# Phase identifier for output organization
+phase=phase18-25
+
+# Quality thresholds
+# min_stars=1000
+# min_pr=200
+# min_issues=200
+# min_forks=200
 ```
 
-## Issue-PR Pairs Crawling
+### Output
 
-This step crawls Issue-PR pairs created after the cut-off date from the given repositories, and converts them into SWE-bench-like task instances.
-
-```shell
-mkdir -p job_status
-
-./swe_task_crawling/run_get_tasks_pipeline.sh \
-    --repos-jsonl output/filtered_repos.jsonl \
-    --token-file tokens.txt \
-    --cutoff-date 20250501 \
-    --path-prs output/prs \
-    --path-tasks output/tasks \
-    --output-dir output/split_jobs
-
-python swe_task_crawling/merge_tasks.py -o output/raw_tasks.jsonl
+Results will be saved to:
+```
+output/{language}/{phase}/tasks.jsonl
 ```
 
-## Execution Env Setup with `RepoLaunch`
+## Step 3: Issue Quality Assessment
 
-Next, we will use `RepoLaunch` to attempt to create an execution environment for each task instance to support test execution.
+Run LLM-based issue quality evaluation:
 
-```shell
-cd ../launch
+```bash
+cd issue_filter
+bash issue_filter.sh
 ```
 
-Create a run config for RepoLaunch and save it in `config.json`:
-```json
-{
-    "llm_provider_name": "OpenAI",
-    "model_config": {        
-        "model_name": "gpt-4.1",
-        "temperature": 0.0
-    },
-    "workspace_root": "playground/tutorial-run/",
-    "dataset": "../curation/output/raw_tasks.jsonl",
-    "print_to_console": false,
-    "max_workers": 5,
-    "overwrite": false
-}
+This script:
+1. Evaluates each issue using an LLM-based scoring system (0-10 points)
+2. Filters out low-quality issues (score < 5)
+3. Outputs filtered dataset
+
+### Configuration
+
+Edit `issue_filter.sh` to set:
+
+```bash
+# Target language
+language=Python
+
+# Phase identifier (must match Step 2)
+phase=phase18-25
+
+# Input file suffix (default: medium)
+suffix=medium
 ```
 
-Prepare your llm API Key.
+### Output
 
-```shell
-export OPENAI_API_KEY=...
-
-export TAVILY_API_KEY=...
+Filtered results will be saved to:
+```
+output/{language}/{phase}/issue_filter_tasks/tasks.jsonl.issue_filter
 ```
 
-Fire your RepoLaunch run!
-```shell
-# recommended in a tmux session, it takes long time
-python -m git_launch.run --config-path config.json
+## Pipeline Summary
+
 ```
-In RepoLaunch step, each instance that is successfully set up will be committed to a Docker image, with `starryzhang` as the default namespace. An example image key: `starryzhang/sweb.eval.x86_64.streamlink_1776_streamlink-6535`. The image name part (`sweb.eval.*`) follows the same naming convention as SWE-bench.
+Step 1: Preparation
+  ├─ tokens.txt (GitHub tokens)
+  └─ Environment variables (OPENAI_API_BASE_URL, OPENAI_KEY)
 
-<blockquote style="border-left: 4px solid #3498db; background: #f4faff; padding: 0.75em;">
+Step 2: Data Collection (curation.sh)
+  ├─ crawl_repo.py          → output/{lang}/raw_repos.jsonl
+  ├─ filter_repo.py         → output/{lang}/filtered_repos.jsonl
+  ├─ run_get_tasks_pipeline → output/{lang}/{phase}/results/tasks/
+  └─ merge_tasks.py         → output/{lang}/{phase}/tasks.jsonl
 
-Note: Some instances would require many file descriptors. If you see "too many files open error", try
-```shell
-ulimit -a
-ulimit -n 32768
-```
-
-</blockquote>
-
-Export successfully set up instances to pre-validated SWE-bench-Live instances file:
-```shell
-python to_swebench.py \
-    --playground playground/tutorial-run \
-    --output_jsonl ../curation/output/pre-validated-instances.jsonl
+Step 3: Quality Assessment (issue_filter.sh)
+  └─ issue_eval.py          → output/{lang}/{phase}/issue_filter_tasks/
+                              tasks.jsonl.issue_filter
 ```
 
-## Validation
+## Notes
 
-In this step we apply gold patches to instances, run test cases, and get `FAIL_TO_PASS` and `PASS_TO_PASS` test cases for each instance.
-
-```shell
-# cd in repo root
-cd ..
-
-python -m swebench.harness.run_validation \
-    --dataset_name curation/output/pre-validated-instances.jsonl \
-    --predictions_path gold \
-    --max_workers 10 \
-    --run_id tutorial-validation \
-    --namespace starryzhang
-```
-
-## Production
-
-This step writes valid instances with both `FAIL_TO_PASS` and `PASS_TO_PASS` test cases to final dataset.
-
-```shell
-python swebench/collect/produce/make_full.py \
-    --input-dir logs/run_evaluation/tutorial-validation/gold \
-    --output-dir datasets
-
-# If you want to merge with old data we published
-python swebench/collect/produce/merge_with_old.py \
-    --input-dir "datasets/full-{today}.jsonl"
-
-python swebench/collect/produce/make_lite.py \
-    --start-month 2024-12 --end-month 2025-05 
-    # If you want to control month range to sample from
-
-python -m swebench.collect.produce.make_verified \
-    --start-month 2024-06 --end-month 2025-05 \
-    --provider OpenAI --model o3-20250416 
-    # Optional --input-file datasets/full-{date}.jsonl
-```
-
-The default output files are: 
-
-- `datasets/full-{today}.jsonl`
-- `datasets/lite-{today}.jsonl`
-- `datasets/verified-{today}.jsonl` & `datasets/verified-log-{today}.jsonl` (LLM's reasons to filter)
-
-where `{today}` is the current date in ISO format (e.g., `2025-01-15`).
-
-To quickly check whether all instances can be solved by the gold patches (usually they do), run
-
-```shell
-python -m swebench.harness.run_evaluation \
-  --dataset_name datasets/full-{today}.jsonl \
-  --split full \
-  --predictions_path gold \
-  --run_id tutorial-validation \
-  --rewrite_reports true
-```
+- The pipeline is designed for large-scale data collection (thousands of repositories)
+- Execution time varies depending on the number of repositories and API rate limits
+- Intermediate results are cached; the pipeline can be resumed if interrupted
+- Always respect GitHub's API rate limits and terms of service
