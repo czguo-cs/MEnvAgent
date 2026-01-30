@@ -17,19 +17,11 @@
 
 Official implementation of MEnvAgent, an automated framework for constructing executable environments across 10 programming languages to enable scalable generation of verifiable software engineering data.
 
-<!-- TODO: Convert PDF to SVG before release (recommended) or PNG
-<p align="center">
-  <img src="assets/MEnvAgent-intro.svg" alt="MEnvAgent Overview" width="800"/>
-</p>
-<p align="center">
-  <em>Comparison between manual environment construction and MEnvAgent's automated approach</em>
-</p>
--->
 
 ## 📰 News
 
-<!-- * **[Jan. 2026]**: Our paper "MEnvAgent: Scalable Polyglot Environment Construction for Verifiable Software Engineering" has been submitted to ! -->
-* **[Jan. 2026]**: We release MEnvData-SWE, the largest open-source polyglot dataset of realistic verifiable Docker environments to date, comprising **3,005 task instances** from **942 repositories** across **10 programming languages**.
+* Stay tuned for future updates.
+* **[Jan. 2026]**: We release MEnvData-SWE, the largest open-source polyglot dataset of realistic verifiable Docker environments to date, comprising **3,005 task instances** from **942 repositories** across **10 programming languages**, with **3,872 agent trajectories**.
 * **[Jan. 2026]**: MEnvBench is now available - an execution-based environment construction benchmark with rigorous quality assurance, covering **1,000 tasks** across **10 programming languages** from diverse domains.
 
 ## ⭐ Key Features
@@ -79,6 +71,65 @@ Instead of building environments from scratch, MEnvAgent:
 - Kubernetes (optional, for K8s backend)
 - Git
 
+## 📊 MEnvBench: Evaluation Benchmark
+
+MEnvBench is a comprehensive benchmark for evaluating multi-language environment building and test execution, comprising **1,000 tasks** (10 languages × 20 repositories × 5 instances) selected from 200 high-quality open-source repositories.
+
+* **Quality Assurance**: Multi-stage filtering pipeline starting from 8,000 candidate repositories (>1,000 stars, >200 forks/issues/PRs) and 213,766 Issue-PR pairs, applying strict criteria including closed issues with test patches and LLM-based quality assessment.
+* **Domain Diversity**: Repositories are systematically classified into specific domains (e.g., AI, System, Web) using LLM categorization to ensure broad coverage across diverse software ecosystems.
+* **Difficulty Stratification**: Strategic sampling across five project scale bands (<10MB to >500MB), as repository size correlates with build complexity, ensuring representation across difficulty levels.
+
+### 📈 Evaluation Results
+
+We evaluate performance across two critical dimensions: success rate and efficiency. As shown in the visualizations below, **MEnvAgent consistently occupies the top-left corner, achieving the best balance of being both faster and more accurate ("better & faster").**
+
+| <img src="assets/f2p_vs_time.png" width="400" /> | <img src="assets/pass_vs_time.png" width="400" /> |
+| :---: | :---: |
+| **Fail-to-Pass (F2P) vs. Time** | **Pass Rate vs. Time** |
+
+### 🎯 Key Improvements
+
+Compared to state-of-the-art baselines, MEnvAgent delivers:
+* **🚀 8.6% Increase** in Fail-to-Pass (F2P) rates.
+* **⏱️ 43% Reduction** in total time costs.
+* **🌐 Polyglot Stability**: Consistent performance gains across all 10 supported programming languages.
+
+---
+
+## 💾 MEnvData Dataset
+
+We release **MEnvData**, a high-quality polyglot SWE dataset comprising **3,005 task instances** from **942 repositories** across **10 programming languages**:
+
+- **3,005 Docker Images**: Pre-built environment images with verified dependencies.
+- **3,872 Agent Trajectories**: Complete execution trajectories for training and fine-tuning.
+- **Universal Format**: Fully compatible with **SWE-factory** format.
+- **Efficient Verification**: Validation is based on concise **exit codes** (Success/Failure), eliminating the need for complex `log_parser` logic.
+- **Verified Quality**: Each instance includes a fully executable environment with pre-verified test cases.
+
+### 🔗 Dataset Access
+
+🤗 **Hugging Face Dataset**: [https://huggingface.co/datasets/ernie-research/MEnvData-SWE](https://huggingface.co/datasets/ernie-research/MEnvData-SWE)
+
+```python
+# Load the dataset using Hugging Face datasets library
+from datasets import load_dataset
+
+dataset = load_dataset("ernie-research/MEnvData-SWE")
+```
+
+### 📋 Dataset Structure
+
+Each instance contains:
+- Repository information: Organization, repository name, commit hash, created at, and primary programming language
+- Issue Description: The original problem statement and requirement details.
+- Patches: Both the patch (solution) and test_patch (evaluation tests).
+- Docker Environment: The corresponding image_name for the pre-built Docker container.
+- Test Command: The specific test_script used for verification via exit codes.
+- Agent Trajectories: Step-by-step solution trajectories for analysis or training.
+
+
+> **Note**: We are actively expanding MEnvData-SWE with additional instances and languages. Stay tuned for potential future releases.
+
 ## 🔧 Installation
 
 ### 1. Clone the Repository
@@ -107,96 +158,6 @@ export OPENAI_KEY=<your_api_key>
 export http_proxy="http://your-proxy:port"
 export https_proxy="http://your-proxy:port"
 export no_proxy="localhost,127.0.0.1"
-```
-
-## 📊 MEnvBench: Evaluation Benchmark
-
-MEnvBench is a comprehensive benchmark for evaluating multi-language environment building and test execution:
-
-- **Coverage**: 1,000 tasks across 10 mainstream programming languages
-- **Repositories**: 200 diverse open-source repositories
-- **Diversity**: Multi-dimensional sampling ensuring high coverage across domains, popularity, and complexity
-
-### 📈 Evaluation Results
-
-Performance comparison with state-of-the-art baselines:
-
-| Model | F2P Rate (%) | Time (min) | Cost (USD) |
-|-------|--------------|------------|------------|
-| **MEnvAgent** | **TBD** | **TBD** | **TBD** |
-| Baseline-1 | TBD | TBD | TBD |
-| Baseline-2 | TBD | TBD | TBD |
-
-*Note: Detailed results will be added from paper*
-
-### 🎯 Key Improvements
-- **8.6%** improvement in Fail-to-Pass (F2P) rates
-- **43%** reduction in time costs
-- Consistent performance across all 10 supported languages
-
-## 💾 MEnvData Dataset
-
-We release **MEnvData**, a high-quality polyglot SWE dataset with **2K Docker images** and **3K agent trajectories**:
-
-- **2K Docker Images**: Pre-built environment images with verified dependencies
-- **3K Agent Trajectories**: Complete execution trajectories for training and analysis
-- **Multi-Language**: Coverage across 10 mainstream programming languages
-- **Verified Quality**: All instances include executable environments with validation
-- **Format**: Compatible with SWE-Bench evaluation framework
-
-### 🔗 Dataset Access
-
-🤗 **Hugging Face Dataset**: [https://huggingface.co/datasets/TODO/MEnvData](https://huggingface.co/datasets/TODO/MEnvData)
-
-```python
-# Load the dataset using Hugging Face datasets library
-from datasets import load_dataset
-
-dataset = load_dataset("TODO/MEnvData")
-```
-
-### 📋 Dataset Structure
-
-Each instance contains:
-- Repository information (org, repo, commit)
-- Test patches and fix patches
-- Docker base image configurations
-- Verified test execution scripts
-- Agent interaction trajectories
-
-*Note: Dataset will be publicly released upon paper publication*
-
-
-### Running Fail2Pass Validation
-
-```bash
-python evaluation/run_evaluation.py \
-  --dataset_name "output/results.json" \
-  --predictions_path "gold" \
-  --max_workers 5 \
-  --run_id "fail2pass_check" \
-  --output_path "run_instances" \
-  --timeout 3600 \
-  --is_judge_fail2pass
-```
-
-### Customizing Agent Behavior
-
-Agents are located in `app/agents/`. Each agent can be customized by:
-1. Modifying agent prompts and logic
-2. Adjusting retry strategies and timeouts
-3. Extending tool capabilities
-
-## ⚙️ Configuration
-
-### Backend Selection
-
-```python
-# Docker backend
-runtime = await Runtime.create(backend="docker", docker_image="ubuntu:latest")
-
-# Kubernetes backend
-runtime = await Runtime.create(backend="kubernetes", docker_image="image:tag")
 ```
 
 ## 📖 Citation
