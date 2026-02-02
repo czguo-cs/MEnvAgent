@@ -205,3 +205,39 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# ====================================
+# Project-specific ignores
+# ====================================
+
+# Paper directory (LaTeX source, large PDFs)
+paper/
+
+# Large data and output directories
+data/
+playground/
+output/
+run_instances/
+results/
+
+# Temporary and backup files
+*.backup
+*.backup_*
+*.tmp
+*~
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE directories
+.idea/
+.vscode/
+
+# Token files (sensitive)
+**/tokens.txt
+**/token*.txt
+curation/tokens*.txt
+app/
+base_image/
+docs/
